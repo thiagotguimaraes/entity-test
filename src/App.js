@@ -107,24 +107,33 @@ class App extends Component {
   render() {
     return (
       <div>
-        <div>CURRENT INFO</div>
-        {this.state.currentInfo.map((item, index) => {
-          index++;
-          return <div key={index} className="line type center">{item + ',  '}</div>
-        })}
+        <div>
+          <div className="inline box current">
+            <div>CURRENT INFO</div>
+            {this.state.currentInfo.map((item, index) => {
+              index++;
+              return <div key={index} className="line type center">{item + ',  '}</div>
+            })}
+          </div>
+          <div className="inline img-box">
+            <img src="./1.jpg" alt="" />
+          </div>
+        </div>
         <br />
-        <div>FACTS</div>
-        {this.facts.map((item, index) => {
-          index++;
-          return <div key={index} className="line type center">{item + ',  '}</div>
-        })}
-        <br />
-        <div>SCHEMA</div>
-        {this.schema.map((item, index) => {
-          index++;
-          return <div key={index} className="line type center">{item + ',  '}</div>
-        })}
-        <br />
+        <div className="box">
+          <div>FACTS</div>
+          {this.facts.map((item, index) => {
+            index++;
+            return <div key={index} className="line type center">{item + ',  '}</div>
+          })}
+          <br />
+          <div>SCHEMA</div>
+          {this.schema.map((item, index) => {
+            index++;
+            return <div key={index} className="line type center">{item + ',  '}</div>
+          })}
+          <br />
+        </div>
       </div>
     );
   }
