@@ -24,7 +24,6 @@ class App extends Component {
 
   render() {
     // evolve.stats();
-    evolve.loadDataset();
     var result = evolve.run();
     console.log(result);
     
