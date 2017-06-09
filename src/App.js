@@ -8,7 +8,11 @@ class App extends Component {
   constructor(props) {
     super(props);
 
+    this.run = this.run.bind(this)
+    this.render = this.render.bind(this)
+
     this.state = {
+      running: null
     }
   }
 
@@ -22,14 +26,25 @@ class App extends Component {
     })
   }
 
+  run() {
+      // evolve.stats();
+      this.setState({running: true})
+      var result = evolve.run();  
+      
+      
+      this.setState({running: false})
+      console.log(result);
+      
+      window.result = result
+  }
+
   render() {
-    // evolve.stats();
-    var result = evolve.run();
-    console.log(result);
+    let {running} = this.state
     
     return (
       <div>
-        {this.printOutputs(result)}
+        <button onClick={this.run}>{running ? 'RUNNING...' : 'RUN'}</button>
+        
       </div>
     );
   }
